@@ -1,0 +1,27 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/SUNIL/RECIEVE_SMS_BANKS/workspace/bnotified/platforms/android/cordova/lib/device.js",
+        "D:/SUNIL/RECIEVE_SMS_BANKS/workspace/bnotified/www/js/services.js",
+        "D:/SUNIL/RECIEVE_SMS_BANKS/workspace/bnotified/www/js/controllers.js",
+        "D:/SUNIL/RECIEVE_SMS_BANKS/workspace/bnotified/www/js/constants.js",
+        "D:/SUNIL/SSSS/ws/bnotified/www/js/app.js",
+        "D:/SUNIL/SSSS/ws/bnotified/www/js/services.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/plugins/ionic-plugin-keyboard/www/android/keyboard.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/plugins/phonegap-plugin-push/www/push.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/cordova.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/cordova_plugins.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/cordova/lib/android_sdk_version.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/cordova/lib/appinfo.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-console/www/console-via-logger.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-console/www/logger.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/ngCordova/dist/ng-cordova-mocks.min.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/js/services.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.min.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/md/ionic.material.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/md-input/ion-md-input.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/ngCordova/dist/ng-cordova-mocks.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/ngCordova/dist/ng-cordova.js",
+        "D:/SUNIL/SSSS/ws/bnotified/platforms/android/build/intermediates/assets/debug/www/lib/ngCordova/dist/ng-cordova.min.js"
+    ]
+}

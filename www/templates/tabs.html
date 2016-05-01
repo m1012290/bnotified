@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-tabs tabs-swipable class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    
+    <ion-tab title="Subscriptions" href="#/main/listedentities">
+      <ion-nav-view name="listed-entities"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="All Notifications" href="#/main/allnotifications" badge="messagesdata.badgeCount" badge-style="badge-container badge-assertive">
+      <ion-nav-view name="all-notifications"></ion-nav-view>
+    </ion-tab>
+      
+    <ion-tab title="Recent Notifications" href="#/main/recentnotifications/{{mobilenumber}}">
+      <ion-nav-view name="recent-notifications"></ion-nav-view>
+    </ion-tab>
+    
+  </ion-tabs>
+</ion-view>

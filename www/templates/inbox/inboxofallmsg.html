@@ -1,0 +1,65 @@
+<ion-view view-title="bnotified" name="all-notifications-view">
+    
+    <!--<ion-header-bar class="bar-positive">
+        <div class="buttons">
+        <button class="button button-icon ion-android-search" 
+                ng-click="showFilterBar()"></button>
+        </div>      
+    </ion-header-bar>-->
+ <!--     <ion-nav-buttons side="left" >
+        <i class="ion-drag"></i>
+      </ion-nav-buttons>-->
+         <ion-nav-buttons side="right">
+            <button class="button button-clear" on-touch="goToAddSubscriptions()">
+                <i class="ion-android-add icon-btn-customize"></i>
+            </button>
+            <button class="button button-clear" ng-click="showFilterBar()">
+                <i class=" ion-search icon-btn-customize"></i>
+            </button>
+            <button class="button button-clear" on-tap="copyContentToClipboard()" ng-if="!listisntempty">
+                <i class="ion-ios-copy icon-btn-customize"></i>
+            </button>
+            <button class="button button-clear" on-touch="openPopover($event)">
+                <i class="ion-android-more-vertical icon-btn-customize"></i>
+            </button>
+        </ion-nav-buttons>
+  <ion-content class="has-header" style="background-color: rgba(178, 199, 218, 0.79);">
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="reloadNotifications()">
+  </ion-refresher>
+    
+  <div ng-if="notificationlist.length > 0">
+      <div ng-repeat="notification in notificationlist">
+          <div class="list card" style="margin-left: 8px;  margin-right: 8px; margin-top: 10px;    margin-bottom: 0px !important;" >
+                  <div class="item item-avatar">
+                     <!-- <span class="circle-span direct-chat-timestamp pull-right">{{notification.createdAt|date:"HH:mm a":"UTC"}} </span>-->
+                    <img ng-src="{{notification.vendorImg}}" ng-if="notification.vendorImg" ng-click="selectMsgForCopyDelete(notification,$event)">
+                      <span class="circle-span direct-chat-timestamp pull-right" ng-if="!notification.vendorImg" ng-click="selectMsgForCopyDelete(notification,$event)" style="padding-top: 12px; padding-left: 5px;font-weight: bold; font-size: 20px;">{{notification.entityName|limitTo:1}}</span>
+                    <h2>{{notification.entityName}} 
+                    <!--    <span style="float:right; color: #428bca;     margin-left: 10px;" class="ion-android-star-outline" ng-class="{'ion-android-star-outline':notification.bookmarked === false, 'ion-android-star':notification.bookmarked === true}" ng-click="bookmark(notification,$event)"></span> -->
+                        <span style="color: #428bca;float:right" ng-class="{'ion-android-mail icon-btn-customize':notification.msgRedstatus === false, 'ion-android-drafts icon-btn-customize':notification.msgRedstatus === true}" >  </span>
+                        <span style="float:right; color: #EBEB05;     margin-left: 10px;" class="ion-android-star icon-btn-customize" ng-if="notification.bookmarked"></span>
+                        
+
+                    </h2>
+
+
+                    <p>{{notification.createdAt|date:"dd MMM y HH:mm":"UTC"}}</p>
+
+                  </div>
+
+                  <div class="item item-body" >
+                    <img class="full-image"  ng-src="{{notification.notificationImg}}" ng-if="notification.notificationImg">
+                    <p style="    margin-top: 3px;">
+                     {{notification.notificationText}}
+                    </p>
+  <!--                  <p>
+                      <a href="#" class="subdued">1 Like</a>
+                      <a href="#" class="subdued">5 Got benifit out of it</a>
+                    </p>-->
+                  </div>
+              </div>
+        </div>
+    </div>
+  </ion-content>
+
+</ion-view>

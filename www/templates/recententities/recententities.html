@@ -1,0 +1,46 @@
+<ion-view view-title="bnotified" name="recent-entities-view" class="recenteEntitiesDivCls">
+<!--      <ion-nav-buttons side="left" >
+        <i class="ion-drag"></i>
+      </ion-nav-buttons>-->
+          
+       <ion-nav-buttons side="right" >
+            <button class="button button-clear" on-touch="goToAddSubscriptions($event)">
+                <i class="ion-android-add icon-btn-customize"></i>
+            </button>
+<!--            <button class="button button-clear">
+                <i class=" ion-search"></i>
+            </button>-->
+            <button class="button button-clear" on-touch="openPopover($event)">
+                <i class="ion-android-more-vertical icon-btn-customize"></i>
+            </button>
+        </ion-nav-buttons>      
+  <ion-content>
+        <!-- <ion-list  show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe"> -->
+      <!-- 
+          <ion-item ng-repeat="entity in listedentities" class="item item-avatar" href="#/{{entity.entityId}}/{{mobilenumber}}/notifications">-->
+      <div ng-repeat="entity in listedentities">
+            <a  href="#/{{entity.entityId}}/{{mobilenumber}}/notifications" class="item" style="padding:0">
+            <div class="item item-avatar">
+              <!--<img ng-src="../../img/ionic.png">-->
+              <span class="circle-span direct-chat-timestamp" style="padding-top: 12px; padding-left: 5px;font-weight: bold; font-size: 20px;">{{entity.entityName|limitTo:1}}</span>
+              <h2>{{entity.entityName}}</h2>
+              <div class="row" style="padding-left: 0px;">
+                <div class="col col-75" style="padding-left: 0px;"><p>{{entity.notificationText}}</p></div>
+                <div class="col-33" align="right" style="padding: 5px;"> 
+                    <span class="item-note notifyTimeCls">  
+                        <span class="item-note" >{{entity.createdAt|date:"dd MMM HH:mm":"UTC"}} </span>
+                    </span>
+                </div>
+            </div>
+              
+              <span class="badge badge-assertive">{{entity.unreadmessagecount}}</span>
+              
+             <!-- <span class="item-note" ng-show='todaysdate|date:"dd/MM/yyyy":"UTC" == entity.createdAt|date:"dd/MM/yyyy":"UTC" ' >{{entity.createdAt|date:"HH:mm":"UTC"}}</span>
+              <span class="item-note" ng-show='todaysdate|date:"dd/MM/yyyy":"UTC" != entity.createdAt|date:"dd/MM/yyyy":"UTC" ' >{{entity.createdAt|date:"dd MMM":"UTC"}}</span>-->
+          <!--</ion-item>
+        </ion-list>-->
+          </div>
+            </a>    
+      </div>
+  </ion-content>
+</ion-view>

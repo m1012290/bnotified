@@ -1,0 +1,84 @@
+<ion-view view-title="{{entityname}}" name="notifications-view" class='allNotificationCls'>
+<ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backButtonAction()">
+                <i class="ion-android-arrow-back icon-btn-customize"></i>
+            </button>
+        </ion-nav-buttons>
+     <ion-nav-buttons side="right">
+            <button class="button button-clear icon-btn-customize" ng-click="showFilterBar()">
+                <i class=" ion-search"></i>
+            </button>
+            <button class="button button-clear icon-btn-customize" on-tap="confirmNotificationDeletion()" ng-if="!listisntempty">
+                <i class="ion-android-delete"></i>
+            </button>
+            <button class="button button-clear icon-btn-customize" on-tap="copyContentToClipboard()" ng-if="!listisntempty" >
+                <i class="ion-ios-copy"></i>
+            </button>
+            <button class="button button-clear icon-btn-customize" on-tap="confirmAllMsgDelete()" ng-if="listisntempty">
+                <i class="ion-android-delete"></i>
+            </button>
+		</ion-nav-buttons>
+  <ion-content >
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="reloadNotifications()">
+  </ion-refresher>
+      <div class="container">
+        <!--style="background: rgba(178, 199, 218, 0.79);"-->
+           <!-- <div>
+                <div class="direct-chat-messages item-remove-animate" ng-repeat="notification in notificationlist|groupByDayMonthYear" divider-collection-repeat>                  
+                    <div class="direct-chat-info clearfix" ng-click="selectMsgForCopyDelete(notification,$event)">
+                        <span class="circle-span direct-chat-timestamp pull-right">{{notification.createdAt|date:"HH:mm a":"UTC"}} </span>
+                    </div>
+                    
+                    <div class="item item-body direct-chat-text" style="background:#fff">
+                        <img class="full-image"  src="img/offer.png">
+                        <p>{{notification.notificationText}}</p>
+                    </div>
+                    
+                    
+                </div>  
+            </div>-->
+          <!--<div set-class-when-at-top="fix-to-top" padding-when-at-top="55" >Hiii</div>-->
+            <div style="margin-top: 6px;" ng-repeat="notification in notificationlist|groupByDayMonthYear" divider-collection-repeat>
+                <div class="list card" style="margin-left: 8px;  margin-right: 8px; margin-top: 10px;    margin-bottom: 0px !important;  margin-left: 0px; margin-right: 0px;box-shadow: 0 24px 24px rgba(178, 199, 218, 0.79);" >
+                    <span class="circle-span direct-chat-timestamp pull-right" ng-click="selectMsgForCopyDelete(notification,$event)"
+                                style="    margin-left: 10px;margin-top: 10px;">
+                        {{notification.createdAt|date:"HH:mm a":"UTC"}} </span>  
+                    <div class="item item-avatar" style="    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;    min-height: 59px;">
+                        
+                        <h2>
+                             {{notification.createdAt|date:"dd MMM y":"UTC"}}
+                            <span style="float:right; color: #EBEB05;     margin-left: 10px;"  ng-class="{'ion-android-star-outline icon-btn-customize':notification.bookmarked ===false, 'ion-android-star icon-btn-customize':notification.bookmarked ===true}" ng-click="bookmark(notification,$event)"></span>
+                        </h2>
+                      </div>
+
+                      <div class="item item-body" style="padding-top: 5px;    padding-left: 72px;">
+                        <img class="notification-img"  src="http://36.media.tumblr.com/c066cc2238103856c9ac506faa6f3bc2/tumblr_nmstmqtuo81tssmyno1_1280.jpg" ng-click="showImage()">
+                        <p style="    margin-top: 3px;">
+                         {{notification.notificationText}}
+                        </p>
+                      </div>
+                  </div>
+            </div>
+          
+          
+        </div>
+         <!--<script id="image-modal.html" type="text/ng-template">
+                  <div class="modal image-modal transparent" ng-click="closeModal()">
+                      <ion-pane class="transparent">
+                         <img src="http://36.media.tumblr.com/c066cc2238103856c9ac506faa6f3bc2/tumblr_nmstmqtuo81tssmyno1_1280.jpg" class="fullscreen-image" style="width: 350px;"/>
+                      </ion-pane>
+                  </div>
+         </script>-->
+      <script id="image-modal.html" type="text/ng-template">
+                 <div class="modal image-modal transparent" ng-click="closeModal()">
+                     <ion-pane class="transparent">
+                           <ion-scroll class="scrollCanvas" zooming="true" min-zoom="1" direction="xy" locked="false">
+                               <div class="image" style="background-image: url('http://36.media.tumblr.com/c066cc2238103856c9ac506faa6f3bc2/tumblr_nmstmqtuo81tssmyno1_1280.jpg')"></div>  
+                           </ion-scroll> 
+                     </ion-pane>
+                 </div>
+        </script>
+  </ion-content>
+</ion-view>

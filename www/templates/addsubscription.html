@@ -1,0 +1,19 @@
+ <ion-view view-title="Add Subscription" name="notifications-view" class='allNotificationCls'>
+     <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backButtonAction()">
+                <i class="ion-android-arrow-back icon-btn-customize"></i>
+            </button>
+     </ion-nav-buttons>
+     <ion-nav-buttons side="right">
+        <i class="ion-checkmark-circled icon-btn-customize"  on-tap="resubscribeEntities()" ng-if="shouldShowCheckMark"></i>
+     </ion-nav-buttons>
+
+    <ion-content>
+     <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" ng-if="unsubscribedentitylist.length > 0">
+      <ion-item ng-repeat="entity in unsubscribedentitylist" class="item item-remove-animate">
+      <ion-checkbox class='radBtnNotifyCls' style="overflow:inherit;" ng-model="entity.resubscribed.checked" ng-change="onchangeofcheckbox()" style="border:none;"></ion-checkbox>
+        <h2>{{entity.entityName}}</h2>
+      </ion-item>
+    </ion-list>
+     </ion-content>
+</ion-view>

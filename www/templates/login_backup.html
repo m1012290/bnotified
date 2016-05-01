@@ -1,0 +1,49 @@
+<ion-view view-title="Please Login" name="login-view">
+<!--    <ion-content  class="padding" scroll="false">
+       <form name="registration" novalidate class="simple-form">
+        <div class="row">
+            <span style="color:red">{{errordescription}}</span>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" name="mobileno" placeholder="mobile number" ng-model="mobilenumber" ng-minlength="10" ng-maxlength="10" ng-required="true" ng-max-type-allowed="10">
+          </label>
+        <ion-md-input placeholder="mobile number" hightlight-color="dark" type="text" ng-model="mobilenumber" ng-minlength="10" ng-maxlength="10" ng-required="true"></ion-md-input>
+        </div>
+        <div class="row">
+        <button on-tap="continuebtn()" class="button button-block button-positive">CONTINUE</button>
+        </div>
+        <ion-numeric-keyboard class="white-keyboard" options="options"></ion-numeric-keyboard>
+       </form>
+    </ion-content>-->
+    
+    <ion-content style="margin-top:30%;"  class="padding customTitle" scroll="false">
+        <form name="registration" class="simple-form" required>
+       
+        
+            <!--<span style="color:red">{{errordescription}}</span>-->
+            <div style="  margin:5px; text-align:center;">
+        <div class="list" style="margin-bottom:5px !important; text-align:center;">
+            <label class="item item-input loginInput">
+              <input type="number" style="text-align:center;" name="mobileno" class="" placeholder="mobile number" ng-model="registrationdets.mobilenumber" ng-minlength="10" ng-maxlength="10" ng-max-length-type="10" required/>
+               
+            </label>
+        </div>
+                
+                 <div style=" font-size:12px;" ng-messages="registration.mobileno.$error" class="">
+                <div ng-message="required" class="requiredStyle" style="color:#FF0000;background-color:#fff;width:100%; ">Mobile Number is required</div>
+                <div ng-message="minlength" class="requiredStyle" style="color:white;background-color: #FF0000;width:100%; padding:5px;"><sup>*</sup>Please enter 10 Digits Mobile Number</div>
+                <div ng-message="maxlength" class="requiredStyle" style="color:white;background-color: #FF0000;width:100%; padding:5px;"><sup>*</sup>Please enter 10 Digits Mobile Number</div>
+        </div>
+                
+        <div class="row">
+        <button on-tap="continuebtn()" class="button button-block button-positive cutomBtnStyle" ng-show="registration.mobileno.$valid">CONTINUE</button>
+        </div>
+            </div>
+            
+            
+        <!-- <ion-numeric-keyboard class="white-keyboard" options="options"></ion-numeric-keyboard> -->
+       </form>
+    </ion-content>
+        
+</ion-view>

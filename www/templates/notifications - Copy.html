@@ -1,0 +1,88 @@
+<ion-view view-title="{{entityname}}" name="notifications-view" class='allNotificationCls'>
+<ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backButtonAction()">
+                <i class="ion-android-arrow-back"></i>
+            </button>
+        </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="showFilterBar()">
+                <i class=" ion-search"></i>
+            </button>
+            <button class="button button-clear notificationDeleteBtnCls" on-tap="showDeleteButtons(true)" ng-if="!shouldShowDelete && listisntempty">
+                <i class="ion-android-delete"></i>
+            </button>
+          
+          <!--  <button class="button button-clear styBtn">
+                Delete
+            </button>-->
+           
+             <i class="ion-checkmark-circled"  on-tap="deleteMultipleNotifications()" ng-if="shouldShowDelete && listisntempty"></i>
+         
+            
+           <!-- <span  ><label class"sepBarCls">|</label>
+            <button class="button button-clear styBtn" on-tap="showDeleteButtons(false)" ng-show="shouldShowDelete && listisntempty">
+                Cancel
+            </button></span>-->
+            
+             <i class="ion-close-circled"  on-tap="showDeleteButtons(false)" ng-show="shouldShowDelete && listisntempty"></i>
+               
+        </ion-nav-buttons>
+  <ion-content>
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="reloadNotifications()">
+  </ion-refresher>
+      <div class="allNotTopMargin bar-subheader bar-positive notificatioSelectAllCls"  ng-show="shouldShowDelete">
+        <ion-checkbox ng-model="deleteallnotifications.checked" ng-change="onchangeofcheckbox()"> <div style="font-size:17px;color:black;font-weight: 100;padding-left:40px">Select all</div></ion-checkbox>
+          
+      </div>
+     <!-- <ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+        <ion-item ng-repeat="notification in notificationlist" class="item item-text-wrap" on-long-press="copycontenttoclipboard(notification.notificationText)">
+          
+            <label>{{notification.notificationText}}
+                <ion-checkbox ng-model="notification.tobedeleted.checked"  ng-change="onchangeofitem()"></ion-checkbox>
+            </label>
+        </ion-item>
+      </ion-list>  -->
+     
+    <!--<div class="content " ng-if="notificationlist.length === 0">No Messages</div>-->
+      <div class="notificationBoxContent">
+          
+           
+    <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" ng-if="notificationlist.length > 0">
+        
+      <ion-item collection-repeat="notification in notificationlist|groupByDayMonthYear" class="item item-text-wrap notificationRepeatBox" on-long-press="copycontenttoclipboard(notification)"  divider-collection-repeat item-height="150"  item-width="100%">
+         <span class="left-triangle"></span>      
+        <p>
+          <div style="float:left; border-bottom:1px solid #000000; width:100% ">
+            <div class="row">
+                <div class="col col-10">
+                    <ion-checkbox class='radBtnNotifyCls' ng-model="notification.tobedeleted.checked"  ng-change="onchangeofitem()" ng-if="shouldShowDelete && !notification.isDivider" ></ion-checkbox>
+                </div>
+                <div class="col col-80">
+                    
+                    <div style="font-size: 17px; color: black; font-weight: 100; margin: -1px; padding: 11px;"><p>{{notification.notificationText}} </p></div>
+                </div>
+                <div class="col" style="padding-top: 18px;">
+                    <div class="item-note notifyTimeCls">                 
+                        
+                        <div align="right"> {{notification.createdAt|date:"HH:mm":"UTC"}}</div>
+                        <div ng-class="{'transparent-selected-box':notificationidselected === notification._id}"></div>
+                    </div>
+                </div>
+            </div>                       
+        </div>
+          
+          </p>
+       
+        <!--<ion-delete-button class="ion-minus-circled"
+                       ng-click="notificationlist.splice($index, 1)">
+        </ion-delete-button>-->
+       
+        <ion-option-button class="button-assertive"
+                   ng-click="delete(notification)">
+        DELETE
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

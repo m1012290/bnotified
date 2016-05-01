@@ -1,0 +1,32 @@
+<ion-view view-title="bnotified" name="listed-entities-view">
+    <!--<ion-nav-buttons side="left" >
+
+        <i class="ion-drag"></i>
+                  </ion-nav-buttons>-->
+        <ion-nav-buttons side="right" >
+            <button class="button button-clear" on-touch="goToAddSubscriptions()">
+                <i class="ion-android-add icon-btn-customize"></i>
+            </button>
+            <button class="button button-clear" ng-click="showFilterBar()">
+             <i class=" ion-search icon-btn-customize"></i>
+            </button>
+            <button class="button button-clear" on-touch="openPopover($event)">          
+                <i class="ion-android-more-vertical icon-btn-customize"></i>
+            </button>
+    </ion-nav-buttons>
+        
+  <ion-content>
+        <ion-list  show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+          <ion-item ng-repeat="entity in listedentities" class="item item-avatar item-remove-animate" href="#/{{entity.entityId}}/{{mobilenumber}}/notifications">
+        
+              <!--<img ng-src={{entity.entityLogo}}>-->
+              <span class="circle-span direct-chat-timestamp" style="padding-top: 12px; padding-left: 5px;font-weight: bold; font-size: 20px;">{{entity.entityName|limitTo:1}}</span>
+              <h2 style="line-height: 40px;">{{entity.entityName}}</h2>
+                <ion-option-button class="button-assertive"
+                   ng-click="delete(entity)">
+                    DELETE
+        </ion-option-button>
+          </ion-item>
+        </ion-list>
+  </ion-content>
+</ion-view>
